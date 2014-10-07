@@ -23,7 +23,8 @@ void Reactor::handleEvents(Time_Value* time)
 
 		if (handler != nullptr)
 		{
-			handler->handleEvent(event.getHandle());
+			QueueItem* item = new QueueItem(handler, event);
+			eventQueue_->add(item);			
 		}
 	}
 }
@@ -32,6 +33,11 @@ void Reactor::handleEvents(Time_Value* time)
 Reactor::Reactor()
 {
 
+}
+
+Reactor::Reactor(EventQueue* eventQueue)
+{
+	eventQueue_ = eventQueue;
 }
 
 Reactor::Reactor(SynchronousEventDemultiplexerInterface* _demultiplexer)
