@@ -23,7 +23,7 @@ void Reactor::handleEvents(Time_Value* time)
 
 		if (handler != nullptr)
 		{
-			QueueItem* item = new QueueItem(handler, event);
+			QueueItem item(handler, event);
 			eventQueue_->add(item);			
 		}
 	}
