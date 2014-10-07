@@ -33,7 +33,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	while (true) {
 		if (eventQueue.isEmpty()) continue;
 
-		QueueItem next = eventQueue.getNext();
+		QueueItem next = eventQueue.pop();
 		next.execute();
 	}
 
