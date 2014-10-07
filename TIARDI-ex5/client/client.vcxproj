@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DBD7493B-A4F4-4621-A35D-4E2F3619BBA4}</ProjectGuid>
+    <ProjectGuid>{4628BA05-9547-4213-B41E-731857D82121}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>server</RootNamespace>
+    <RootNamespace>client</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -80,18 +80,24 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Event.h" />
-    <ClInclude Include="EventQueue.h" />
-    <ClInclude Include="QueueItem.h" />
+    <ClInclude Include="Connector.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="PatientEvent.h" />
+    <ClInclude Include="PatientEventHandler.h" />
+    <ClInclude Include="PatientService.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="WriteEventHandler.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Event.cpp" />
-    <ClCompile Include="EventQueue.cpp" />
-    <ClCompile Include="QueueItem.cpp" />
-    <ClCompile Include="server.cpp" />
+    <ClCompile Include="client.cpp" />
+    <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="PatientEvent.cpp" />
+    <ClCompile Include="PatientEventHandler.cpp" />
+    <ClCompile Include="PatientService.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="WriteEventHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\framework\framework.vcxproj">

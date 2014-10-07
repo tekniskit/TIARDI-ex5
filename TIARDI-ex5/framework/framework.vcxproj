@@ -11,19 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DBD7493B-A4F4-4621-A35D-4E2F3619BBA4}</ProjectGuid>
+    <ProjectGuid>{47E3BFF1-0AFA-485C-9E5A-C125EF232FBF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>server</RootNamespace>
+    <RootNamespace>framework</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -39,23 +39,17 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\framework\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -67,10 +61,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -80,23 +74,48 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="CprNumber.cpp" />
+    <ClCompile Include="DemuxTable.cpp" />
+    <ClCompile Include="HandleSock.cpp" />
+    <ClCompile Include="HandleStub.cpp" />
+    <ClCompile Include="INET_Addr.cpp" />
+    <ClCompile Include="IReactor.cpp" />
+    <ClCompile Include="NetworkEvent.cpp" />
+    <ClCompile Include="NetworkHandle.cpp" />
+    <ClCompile Include="Patient.cpp" />
+    <ClCompile Include="Reactor.cpp" />
+    <ClCompile Include="SOCK_Acceptor.cpp" />
+    <ClCompile Include="SOCK_Connector.cpp" />
+    <ClCompile Include="SOCK_Stream.cpp" />
+    <ClCompile Include="SynchronousEventDemultiplexerClient.cpp" />
+    <ClCompile Include="SynchronousEventDemultiplexerSock.cpp" />
+    <ClCompile Include="SynchronousEventDemultiplexerStub.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Acceptor.h" />
+    <ClInclude Include="CprNumber.h" />
+    <ClInclude Include="DemuxTable.h" />
     <ClInclude Include="Event.h" />
-    <ClInclude Include="EventQueue.h" />
-    <ClInclude Include="QueueItem.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Event.cpp" />
-    <ClCompile Include="EventQueue.cpp" />
-    <ClCompile Include="QueueItem.cpp" />
-    <ClCompile Include="server.cpp" />
-    <ClCompile Include="stdafx.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\framework\framework.vcxproj">
-      <Project>{47e3bff1-0afa-485c-9e5a-c125ef232fbf}</Project>
-    </ProjectReference>
+    <ClInclude Include="EventHandlerInterface.h" />
+    <ClInclude Include="Handle.h" />
+    <ClInclude Include="HandleSock.h" />
+    <ClInclude Include="HandleStub.h" />
+    <ClInclude Include="IAcceptor.h" />
+    <ClInclude Include="IConnector.h" />
+    <ClInclude Include="INET_Addr.h" />
+    <ClInclude Include="IReactor.h" />
+    <ClInclude Include="NetworkEvent.h" />
+    <ClInclude Include="NetworkHandle.h" />
+    <ClInclude Include="Patient.h" />
+    <ClInclude Include="Reactor.h" />
+    <ClInclude Include="SOCK_Acceptor.h" />
+    <ClInclude Include="SOCK_Connector.h" />
+    <ClInclude Include="SOCK_Stream.h" />
+    <ClInclude Include="SynchronousEventDemultiplexerClient.h" />
+    <ClInclude Include="SynchronousEventDemultiplexerInterface.h" />
+    <ClInclude Include="SynchronousEventDemultiplexerSock.h" />
+    <ClInclude Include="SynchronousEventDemultiplexerStub.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
