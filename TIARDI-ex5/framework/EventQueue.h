@@ -9,7 +9,7 @@ class EventQueue
 public:
 	bool isEmpty();
 	QueueItem getNext();
-	void add(Event, EventHandler);
+	void add(QueueItem* item);
 
 private:
 	std::vector<QueueItem> queue;

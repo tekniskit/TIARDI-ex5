@@ -74,9 +74,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="CprNumber.cpp" />
     <ClCompile Include="DemuxTable.cpp" />
+    <ClCompile Include="EventQueue.cpp" />
     <ClCompile Include="HandleSock.cpp" />
     <ClCompile Include="HandleStub.cpp" />
     <ClCompile Include="INET_Addr.cpp" />
@@ -84,6 +84,7 @@
     <ClCompile Include="NetworkEvent.cpp" />
     <ClCompile Include="NetworkHandle.cpp" />
     <ClCompile Include="Patient.cpp" />
+    <ClCompile Include="QueueItem.cpp" />
     <ClCompile Include="Reactor.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_Connector.cpp" />
@@ -93,11 +94,11 @@
     <ClCompile Include="SynchronousEventDemultiplexerStub.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Acceptor.h" />
     <ClInclude Include="CprNumber.h" />
     <ClInclude Include="DemuxTable.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventHandlerInterface.h" />
+    <ClInclude Include="EventQueue.h" />
     <ClInclude Include="Handle.h" />
     <ClInclude Include="HandleSock.h" />
     <ClInclude Include="HandleStub.h" />
@@ -108,6 +109,7 @@
     <ClInclude Include="NetworkEvent.h" />
     <ClInclude Include="NetworkHandle.h" />
     <ClInclude Include="Patient.h" />
+    <ClInclude Include="QueueItem.h" />
     <ClInclude Include="Reactor.h" />
     <ClInclude Include="SOCK_Acceptor.h" />
     <ClInclude Include="SOCK_Connector.h" />
