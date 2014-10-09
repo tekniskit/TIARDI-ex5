@@ -32,4 +32,6 @@ Patient PatientDatabase::getPatient(CprNumber cprNumber) {
 		
 		return Patient(cpr, name, address);
 	}
+
+	return Patient(CprNumber("000000-0000"), "Not Found", "Not in database");
 }
