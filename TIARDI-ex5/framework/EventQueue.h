@@ -14,5 +14,5 @@ public:
 
 private:
 	std::vector<QueueItem> queue_;
-	//std::mutex mutex_;
+	std::mutex mutex_;
 };

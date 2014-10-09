@@ -41,7 +41,7 @@ NetworkEvent SynchronousEventDemultiplexerSock::getNetworkEvent()
 		int response = FD_ISSET(*(acceptorPtr->getSocket()), &readfds);
 		if ( response > 0)
 		{
-			//if (c_conect == false)
+			if (c_conect == false)
 			{
 				c_conect = true;
 				Nevent.setEventType(6);
