@@ -40,10 +40,18 @@ NetworkEvent SynchronousEventDemultiplexerSock::getNetworkEvent()
 		int response = FD_ISSET(*(acceptorPtr->getSocket()), &readfds);
 		if ( response > 0)
 		{
-			Nevent.setEventType(6); 
-			Nevent.setHandle(nullptr); 
-			std::cout << "Client connect event" << std::endl;
-			return Nevent; 
+			if (c_conect == false)
+			{
+				c_conect = true;
+				Nevent.setEventType(6);
+				Nevent.setHandle(nullptr);
+				std::cout << "Client connect event" << std::endl;
+				return Nevent;
+			}
+		}
+		else
+		{
+			c_conect = false; 
 		}
 		try{
 		for (std::list<SOCK_Stream*>::iterator it = socketList_->begin(); it != socketList_->end(); it++)

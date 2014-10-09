@@ -86,6 +86,7 @@
     <ClCompile Include="Patient.cpp" />
     <ClCompile Include="QueueItem.cpp" />
     <ClCompile Include="Reactor.cpp" />
+    <ClCompile Include="ServerReactor.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_Connector.cpp" />
     <ClCompile Include="SOCK_Stream.cpp" />
@@ -111,6 +112,7 @@
     <ClInclude Include="Patient.h" />
     <ClInclude Include="QueueItem.h" />
     <ClInclude Include="Reactor.h" />
+    <ClInclude Include="ServerReactor.h" />
     <ClInclude Include="SOCK_Acceptor.h" />
     <ClInclude Include="SOCK_Connector.h" />
     <ClInclude Include="SOCK_Stream.h" />

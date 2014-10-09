@@ -4,8 +4,10 @@
 #include "SynchronousEventDemultiplexerInterface.h"
 #include "SOCK_Stream.h"
 #include <list>
+#include "EventQueue.h"
+#include "QueueItem.h"
 
-class Reactor:IReactor
+class ServerReactor:IReactor
 {
 
 public:
@@ -15,12 +17,13 @@ public:
 	void setSynchronousEventDemultiplexer(SynchronousEventDemultiplexerInterface*);
 	void pushStream(SOCK_Stream* stream);
 	void removeStream(SOCK_Stream* stream);
-	Reactor(SynchronousEventDemultiplexerInterface* _demultiplexer);
-	Reactor();
+	ServerReactor(SynchronousEventDemultiplexerInterface* _demultiplexer);
+	ServerReactor(EventQueue* eventQueue);
+	ServerReactor();
 
 private:
 	// variables 
-
+	EventQueue* eventQueue_;
 	SynchronousEventDemultiplexerInterface* demultiplexer; 
 	DemuxTable handlerTabel;
 };

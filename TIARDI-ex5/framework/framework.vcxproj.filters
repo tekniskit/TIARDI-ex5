@@ -45,9 +45,6 @@
     <ClCompile Include="Patient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Reactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SOCK_Acceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -70,6 +67,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="QueueItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerReactor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reactor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,9 +119,6 @@
     <ClInclude Include="Patient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Reactor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SOCK_Acceptor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -144,6 +144,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QueueItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerReactor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reactor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

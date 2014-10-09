@@ -81,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="Event.h" />
     <ClInclude Include="PatientDatabase.h" />
     <ClInclude Include="PatientEvent.h" />
     <ClInclude Include="PatientEventHandler.h" />
@@ -91,7 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
-    <ClCompile Include="Event.cpp" />
     <ClCompile Include="PatientDatabase.cpp" />
     <ClCompile Include="PatientEvent.cpp" />
     <ClCompile Include="PatientEventHandler.cpp" />

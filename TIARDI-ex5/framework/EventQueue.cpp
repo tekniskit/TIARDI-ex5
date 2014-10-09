@@ -7,21 +7,21 @@ bool EventQueue::isEmpty()
 
 QueueItem EventQueue::pop()
 {
-	mutex_.lock();
+	//mutex_.lock();
 	
 	QueueItem item = queue_.back();
 	queue_.pop_back();
 
-	mutex_.unlock();
+	//mutex_.unlock();
 
 	return item;
 }
 
 void EventQueue::add(QueueItem item)
 {
-	mutex_.lock();
+	//mutex_.lock();
 
 	queue_.push_back(item);
 	
-	mutex_.unlock();
+	//mutex_.unlock();
 }

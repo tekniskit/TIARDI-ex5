@@ -5,16 +5,18 @@
 #include <thread>
 #include "EventQueue.h"
 #include "Acceptor.h"
-#include "Reactor.h"
+#include "ServerReactor.h"
 #include "INET_Addr.h"
 #include "SynchronousEventDemultiplexerSock.h"
 #include "ReadFromDatabaseEvent.h"
 
 using namespace std;
 
-void reactorTask(EventQueue* queue)
+EventQueue eventQueue;
+
+void reactorTask()
 {
-	Reactor reactor(queue);
+	ServerReactor reactor(&eventQueue);
 	ReadFromDatabaseEvent databaseHandler;
 	reactor.registerHandler(&databaseHandler, 7);
 	Acceptor acceptor(5500, (IReactor*)&reactor); // &SOCK_Acceptor
@@ -26,9 +28,7 @@ void reactorTask(EventQueue* queue)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	EventQueue eventQueue;
-	
-	thread reactorThread(reactorTask, eventQueue);
+	thread reactorThread(reactorTask);
 
 	while (true) {
 		if (eventQueue.isEmpty()) continue;
