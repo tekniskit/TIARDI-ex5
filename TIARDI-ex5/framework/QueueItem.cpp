@@ -7,4 +7,5 @@ QueueItem::QueueItem(EventHandlerInterface* eventHandler, NetworkEvent networkEv
 
 void QueueItem::execute(){
 	eventHandler_->handleEvent(networkEvent_.getHandle());
+	delete networkEvent_.getHandle();
 }

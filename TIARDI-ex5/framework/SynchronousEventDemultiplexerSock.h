@@ -18,11 +18,11 @@ private:
 	fd_set readfds;
 	fd_set writefds;
 	fd_set Errorfds;
-	NetworkHandle handle;
 	//Reactor* reactor_;
 	void prepFdsSet();
 	void Disconnect(SOCK_Stream* value);
 	std::list<SOCK_Stream*>* socketList_;
+	std::list<SOCK_Stream*>::iterator it;
 	bool c_conect = false;
 public:
 	SynchronousEventDemultiplexerSock(SOCK_Acceptor* acceptor, std::list<SOCK_Stream*>* socketList);

@@ -7,6 +7,7 @@ SynchronousEventDemultiplexerSock::SynchronousEventDemultiplexerSock(SOCK_Accept
 {
 	acceptorPtr = acceptor;
 	socketList_ = socketList;
+	it = socketList_->begin();
 }
 
 SynchronousEventDemultiplexerSock::~SynchronousEventDemultiplexerSock()
@@ -40,7 +41,7 @@ NetworkEvent SynchronousEventDemultiplexerSock::getNetworkEvent()
 		int response = FD_ISSET(*(acceptorPtr->getSocket()), &readfds);
 		if ( response > 0)
 		{
-			if (c_conect == false)
+			//if (c_conect == false)
 			{
 				c_conect = true;
 				Nevent.setEventType(6);
@@ -54,7 +55,7 @@ NetworkEvent SynchronousEventDemultiplexerSock::getNetworkEvent()
 			c_conect = false; 
 		}
 		try{
-		for (std::list<SOCK_Stream*>::iterator it = socketList_->begin(); it != socketList_->end(); it++)
+		for (; it != socketList_->end(); it++)
 			{
 				SOCK_Stream* value = *it;
 
@@ -73,12 +74,12 @@ NetworkEvent SynchronousEventDemultiplexerSock::getNetworkEvent()
 						{
 							std::cout << "Networkdata: " << networkdata << std::endl;
 							char ev = networkdata[0]; 
-							handle = NetworkHandle(value);
+							NetworkHandle* handle = new NetworkHandle(value);
 							Nevent.setEventType(ev-48);
 							std::string data(networkdata + 1, resived-1);
-							handle.setData(data);
-							Nevent.setHandle((Handle*)&handle); 
-						
+							handle->setData(data);
+							Nevent.setHandle(handle); 
+							it++;
 							return Nevent; 
 						}
 				
@@ -88,9 +89,10 @@ NetworkEvent SynchronousEventDemultiplexerSock::getNetworkEvent()
 
 				//Create write Event 
 				if (FD_ISSET(value->get_handle(), &writefds)) {
-					handle = NetworkHandle(value);
+					NetworkHandle* handle = new NetworkHandle(value);
 					Nevent.setEventType(4);
-					Nevent.setHandle((Handle*)&handle);
+					Nevent.setHandle(handle);
+					it++;
 					return Nevent;
 				}
 			}
@@ -101,7 +103,7 @@ NetworkEvent SynchronousEventDemultiplexerSock::getNetworkEvent()
 		}
 	}
 
-	
+	it = socketList_->begin();
 	return Nevent; 
 }
 

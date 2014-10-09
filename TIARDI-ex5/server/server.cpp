@@ -35,6 +35,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		QueueItem next = eventQueue.pop();
 		next.execute();
+
 	}
 
 	return 0;
